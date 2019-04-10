@@ -1,0 +1,19 @@
+version: "3"
+services:
+  students-filter:
+    build:
+      context: ./students-filter
+      dockerfile: Dockerfile
+    image: students-filter:tag
+  students-store:
+    build:
+      context: ./students-store
+      dockerfile: Dockerfile
+    image: students-store:tag
+  nginx-http:
+    build:
+      context: ./nginx-http
+      dockerfile: Dockerfile
+    image: nginx-http:tag
+    ports:
+      - "80:80"
